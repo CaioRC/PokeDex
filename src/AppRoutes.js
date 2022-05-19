@@ -4,7 +4,7 @@ import { Home } from 'pages/Home';
 
 export function AppRoutes() {
 	return (
-		<BrowserRouter>
+		<BrowserRouter basename="/PokeDex">
 			<Routes>
 				<Route path="/" element={<Home />} />
 			</Routes>
