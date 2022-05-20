@@ -10,10 +10,10 @@ export function Header() {
 			<styles.HeaderContainer>
 				<styles.TextWrapper>
 					<Typography weight="regular" size="small" color="white">
-						Olá, <b>Ash Ketchum </b>
+						Hello, <b>Ash Ketchum </b>
 					</Typography>
 					<Typography weight="regular" size="xsmall" color="white">
-						Bem Vindo
+						Welcome
 					</Typography>
 				</styles.TextWrapper>
 				<styles.AvatarWrapper>

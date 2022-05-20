@@ -7,15 +7,19 @@ export const CardContainer = styled.div`
 	width: 100%;
 	height: 160px;
 	cursor: pointer;
-	background: green;
+	background: ${({ theme, themeVariant, type }) =>
+		theme[themeVariant].colors.types[type]};
 	padding: 24px;
 	border-radius: 16px;
 	border: 0.5px solid rgba(109, 111, 113, 0.6);
 `;
 
 export const TextWrapper = styled.div`
+	position: relative;
 	display: flex;
 	justify-content: space-between;
+	text-transform: capitalize;
+	z-index: 2;
 `;
 
 export const TagsWrapper = styled.div`
@@ -23,13 +27,12 @@ export const TagsWrapper = styled.div`
 	flex-direction: column;
 	margin-top: 16px;
 	width: 40%;
-	border: 1px solid yellow;
 `;
 
 export const PokemonImage = styled.img`
 	position: absolute;
 	right: 0;
 	bottom: 0;
-	width: 160px;
-	height: 160px;
+	width: 120px;
+	height: 120px;
 `;

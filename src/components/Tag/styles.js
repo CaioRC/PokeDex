@@ -3,17 +3,10 @@ import { Link } from 'react-router-dom';
 
 export const TagContainer = styled.div`
 	margin-bottom: 6px;
-	background: blue;
+	background: rgba(255, 255, 255, 0.2);
 	border-radius: 50px;
 	text-align: center;
 	padding: 4px 16px;
+	text-transform: capitalize;
 	width: fit-content;
 `;
-// };
-// export const CardTitleWrapper = styled.div;
-// // CardTitleWrapper: {
-// //   display: "flex"
-// // };
-// // GrayCircle: {
-// //   marginRight: "8px"
-// // }
