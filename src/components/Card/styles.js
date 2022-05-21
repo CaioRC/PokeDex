@@ -7,8 +7,8 @@ export const CardContainer = styled.div`
 	width: 100%;
 	height: 160px;
 	cursor: pointer;
-	background: ${({ theme, themeVariant, type }) =>
-		theme[themeVariant].colors.types[type]};
+	background-color: ${({ theme, themeVariant, type }) =>
+		theme[themeVariant].colors[type] + '95'};
 	padding: 24px;
 	border-radius: 16px;
 	border: 0.5px solid rgba(109, 111, 113, 0.6);

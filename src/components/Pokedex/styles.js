@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import { BREAKPOINTS } from 'global/variables';
 
 export const PokedexContainer = styled.div`
-	border: 1px solid red;
 	padding: 32px 16px;
 	align-items: center;
 	width: 100%;
@@ -18,7 +17,6 @@ export const CardsWrapper = styled.div`
 	grid-template-columns: 1fr;
 	column-gap: 16px;
 	row-gap: 16px;
-	border: 1px solid green;
 
 	@media screen and (min-width: ${BREAKPOINTS.tablet}) {
 		grid-template-columns: 1fr 1fr;

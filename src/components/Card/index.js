@@ -6,7 +6,11 @@ import { NumberPadding } from 'utils/StringUtilsOperations';
 
 export function Card({ name, index, types }) {
 	return (
-		<styles.CardContainer themeVariant={'original'} type={types[0].type.name}>
+		<styles.CardContainer
+			// to={`Details/${name}`}
+			themeVariant={'original'}
+			type={types[0].type.name}
+		>
 			<styles.PokemonImage
 				src={
 					index < 906
@@ -27,7 +31,7 @@ export function Card({ name, index, types }) {
 			</styles.TextWrapper>
 			<styles.TagsWrapper>
 				{types.map(({ type }, index) => (
-					<Tag key={name + index}>{type.name}</Tag>
+					<Tag key={name + index} type={type.name} />
 				))}
 			</styles.TagsWrapper>
 		</styles.CardContainer>
