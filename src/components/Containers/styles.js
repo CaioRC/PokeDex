@@ -15,5 +15,5 @@ export const DetailsResponsiveContainer = styled.div`
 	width: 100vw;
 	height: 100vh;
 	background: ${({ theme, themeVariant, type }) =>
-		theme[themeVariant].colors[type]};
+		theme[themeVariant].colors[type] + '95'};
 `;

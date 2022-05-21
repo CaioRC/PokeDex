@@ -1,25 +1,18 @@
 import { Typography } from 'components/Typography';
-import { Avatar } from 'components/Avatar';
 import { DetailsResponsiveContainer } from 'components/Containers/DetailsResponsiveContainer';
-import { Card } from 'components/Card';
 import { Tag } from 'components/Tag';
-import { PokeCharacteristics } from 'components/PokeCharacteristics';
-import { useLocation, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { useQuery } from 'react-query';
-import { useInView } from 'react-intersection-observer';
 import axios from 'axios';
 import * as styles from './styles';
 import { NumberPadding } from 'utils/StringUtilsOperations';
-import { FaWeightHanging } from 'react-icons/fa';
 
 export function PokeInfo() {
-	// const { ref, inView } = useInView();
 	let { id } = useParams();
 	const [pokemon, setPokemon] = useState({});
 	const [pokemonSpecie, setPokemonSpecie] = useState({});
-	const location = useLocation();
 
 	const fetchPokemonData = () => {
 		return axios
@@ -31,28 +24,16 @@ export function PokeInfo() {
 				axios.spread(({ data: pokemonSpecieData }, { data: pokemonData }) => {
 					setPokemon(pokemonData);
 					setPokemonSpecie(pokemonSpecieData);
+					console.log(pokemonData);
+					console.log(pokemonSpecieData);
 					return { ...pokemon, ...pokemonSpecie };
 				})
 			);
 	};
 
-	const { isLoading, isError, data, error, refetch } = useQuery(
-		'pokemon',
-		fetchPokemonData,
-		{
-			keepPreviousData: true,
-			staleTime: 0,
-			enabled: false,
-			notifyOnNetworkStatusChange: true
-		}
-	);
-
-	useEffect(() => {
-		console.log('refecthed');
-		refetch();
-	}, []);
-
-	console.log(data);
+	const { isLoading } = useQuery(['pokemon', id], fetchPokemonData, {
+		cacheTime: 0
+	});
 
 	return isLoading ? (
 		<p>Loading... {console.log(pokemon)}</p>
@@ -100,12 +81,7 @@ export function PokeInfo() {
 						{pokemonSpecie.flavor_text_entries[1].flavor_text}
 					</Typography>
 
-					<styles.PokeInfoCharacteristics>
-						{/* <PokeCharacteristics
-							Icon={FaWeightHanging}
-							text={'7kg'}
-							subtext={'peso'}
-						/>
+					{/* <styles.PokeInfoCharacteristics>
 						<PokeCharacteristics
 							Icon={FaWeightHanging}
 							text={'7kg'}
@@ -115,7 +91,12 @@ export function PokeInfo() {
 							Icon={FaWeightHanging}
 							text={'7kg'}
 							subtext={'peso'}
-						/> */}
+						/>
+						<PokeCharacteristics
+							Icon={FaWeightHanging}
+							text={'7kg'}
+							subtext={'peso'}
+						/>
 						<styles.PokeInfoCharacteristicsWeight>
 							<styles.PokeInfoCharacteristicsWeightText>
 								<FaWeightHanging />
@@ -126,7 +107,7 @@ export function PokeInfo() {
 						</styles.PokeInfoCharacteristicsWeight>
 						<styles.PokeInfoCharacteristicsHeight></styles.PokeInfoCharacteristicsHeight>
 						<styles.PokeInfoCharacteristicsPower></styles.PokeInfoCharacteristicsPower>
-					</styles.PokeInfoCharacteristics>
+					</styles.PokeInfoCharacteristics> */}
 				</styles.PokeInfoWrapper>
 			</styles.PokeInfoContainer>
 		</DetailsResponsiveContainer>

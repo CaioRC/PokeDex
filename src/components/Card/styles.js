@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
-export const CardContainer = styled.div`
+export const CardContainer = styled(Link)`
 	position: relative;
 	text-decoration: none;
 	width: 100%;

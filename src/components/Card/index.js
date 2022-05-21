@@ -7,7 +7,7 @@ import { NumberPadding } from 'utils/StringUtilsOperations';
 export function Card({ name, index, types }) {
 	return (
 		<styles.CardContainer
-			// to={`Details/${name}`}
+			to={`Details/${name}`}
 			themeVariant={'original'}
 			type={types[0].type.name}
 		>
